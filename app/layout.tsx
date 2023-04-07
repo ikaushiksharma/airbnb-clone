@@ -6,8 +6,9 @@ import { Nunito } from "next/font/google";
 import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata = {
-  title: "AirBnb",
-  description: "Airbnb Clone by Kaushik",
+  title: "Holiday Homes & Apartment Rentals - Airbnb",
+  description:
+    "Find the perfect place to stay at an amazing price in 191 countries. Belong anywhere with Airbnb.",
 };
 
 const font = Nunito({

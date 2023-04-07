@@ -2,7 +2,7 @@
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -30,21 +30,23 @@ const RegisterModal = () => {
     axios
       .post("/api/register", data)
       .then(() => {
+        toast.success("Registered!");
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error("Something went wrong!");
+        toast.error(error.message);
       })
       .finally(() => {
         setIsLoading(false);
       });
   };
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
       <Input
         id="email"
-        label="Email"
+        label="email"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -52,7 +54,7 @@ const RegisterModal = () => {
       />
       <Input
         id="name"
-        label="Name"
+        label="name"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -60,7 +62,7 @@ const RegisterModal = () => {
       />
       <Input
         id="password"
-        label="Password"
+        label="password"
         type="password"
         disabled={isLoading}
         register={register}
