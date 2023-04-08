@@ -2,12 +2,11 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-type Props = {};
-
-function Logo({}: Props) {
-  const router = useRouter;
+function Logo() {
+  const router = useRouter();
   return (
     <Image
+      onClick={() => router.push("/")}
       alt="logo"
       className="hidden md:block cursor-pointer"
       height="100"
