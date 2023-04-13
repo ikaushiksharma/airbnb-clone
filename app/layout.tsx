@@ -1,12 +1,10 @@
 import ClientOnly from "./components/ClientOnly";
-import RegisterModal from "./components/modals/RegisterModal";
-import RentModal from "./components/modals/RentModal";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import ToasterProvider from "./providers/ToasterProvider";
-import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import ModalsProvider from "./providers/ModalsProvider";
 
 export const metadata = {
   title: "Holiday Homes & Apartment Rentals - Airbnb",
@@ -25,9 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          <RentModal />
-          <LoginModal />
-          <RegisterModal />
+          <ModalsProvider />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
