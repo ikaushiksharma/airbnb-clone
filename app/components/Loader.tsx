@@ -1,6 +1,6 @@
 "use client";
 
-import { PuffLoader } from "react-spinners";
+import { PuffLoader, RingLoader } from "react-spinners";
 
 const Loader = () => {
   return (
@@ -13,7 +13,7 @@ const Loader = () => {
       items-center 
     "
     >
-      <PuffLoader size={100} color="red" />
+      <RingLoader size={100} color="red" />
     </div>
   );
 };
